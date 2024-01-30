@@ -35,9 +35,9 @@ const AllMusic = () => {
                         <div className="">
                         <h1 className="font-bold">{result.songTitle}</h1> 
                          <h6>{result.artistName}</h6>
-                        <audio controls className="bg-zinc-700 ring-2 ring-blue-500">
-                            <source className="bg-slate-600"  src={result.songUrl} type="audio/mpeg" />
-                        </audio>
+                         <audio controls>
+                            <source  src={result.songUrl} type="audio/mpeg"/>
+                       </audio>
                         </div>
                     </div>
               </div>
