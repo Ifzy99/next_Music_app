@@ -2,32 +2,46 @@
 
 import axios from "axios";
 import Image from "next/image";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 
 
 const AllMusic = () => {
-    const [song, setData] = useState([]);
+    const [songs, setSongs] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const getSongs = ()=>{
-        axios.get("https://musicapi-19wk.onrender.com/music/myAPI")
-        .then((res)=>{
-           console.log(res);
-           setData(res.data);
+    useEffect(() => {
+      axios
+        .get("https://musicapi-19wk.onrender.com/music/myAPI")
+        .then((response) => {
+          setSongs(response.data);
+          setLoading(false);
         })
-        .catch((err)=>{
-            console.log("err in getting resources");
-        })
-    }
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setLoading(false);
+        });
+    }, []);
+
+    // const getSongs = ()=>{
+    //     axios.get("https://musicapi-19wk.onrender.com/music/myAPI")
+    //     .then((res)=>{
+    //        console.log(res);
+    //        setData(res.data);
+    //     })
+    //     .catch((err)=>{
+    //         console.log("err in getting resources");
+    //     })
+    // }
   return (
     <>
-      <div>
+      <div className="text-center">
             <h3 className="text-center mt-3">API Fetch</h3>
-            <button onClick={getSongs}>Check data</button>
+            {loading && <p>Loading...</p>}
       </div>
         {
-            song.map((result)=>(
+            songs.map((result)=>(
               <div key={result.id} >
                     <small>{result.id}</small>
                     <div className="p-3 my-3 border shadow-md drop-shadow-lg flex flex-row bg-stone-400 w-2/6">
