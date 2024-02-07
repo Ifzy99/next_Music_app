@@ -26,16 +26,6 @@ const AllMusic = () => {
         });
     }, []);
 
-    // const getSongs = ()=>{
-    //     axios.get("https://musicapi-19wk.onrender.com/music/myAPI")
-    //     .then((res)=>{
-    //        console.log(res);
-    //        setData(res.data);
-    //     })
-    //     .catch((err)=>{
-    //         console.log("err in getting resources");
-    //     })
-    // }
   return (
     <>
       <div className="text-center">
