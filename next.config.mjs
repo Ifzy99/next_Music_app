@@ -11,7 +11,8 @@ const nextConfig = {
                   'th.bing.com',
                   '1.bp.blogspot.com',
                   'www.dansendeberen.be',
-                  'www.crownnote.com'
+                  'www.crownnote.com',
+                  'res.cloudinary.com'
                 ],
     }
 };
