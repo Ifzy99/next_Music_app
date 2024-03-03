@@ -30,7 +30,8 @@ const AllMusic = () => {
     <>
       <div className="text-center">
             <h3 className="text-center mt-3">ALL SONGS</h3>
-            {loading && <Loader/>}
+            {loading &&  <Loader/>}
+            
       </div>
         {
             songs.map((result)=>(
@@ -38,9 +39,9 @@ const AllMusic = () => {
                     <small>{result.id}</small>
                     <div className="p-3 my-3 border shadow-md drop-shadow-lg flex flex-row bg-stone-400 w-2/6">
                       <Image src={result.songImage}  width={100} height={100} blurDataURL="data" placeholder="blur" className="mx-3" alt="API Images"  style={{ width: "100%", height: "auto" }}/>
-                        <div className="">
+                        <div className="audioItems">
                         <h1 className="font-bold">{result.songTitle}</h1> 
-                         <h6>{result.artistName}</h6>
+                         <h5>{result.artistName}</h5>
                          <audio controls>
                             <source  src={result.songUrl} type="audio/mpeg"/>
                        </audio>
